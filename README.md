@@ -141,4 +141,5 @@ Vue.createApp({
   }).mount('#app');
 </script>
 ```
-### 
+### 인스턴스 옵션
+
