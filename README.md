@@ -54,6 +54,7 @@
   - night owl
   - volar
 - vue.js devtools 플러그인
+![화면 캡처 2023-11-28 085929](https://github.com/kyung1843/Vue3/assets/149764469/c10e2330-00e4-4779-9d76-dabb7860d6f7)
 
 
 https://joshua1988.github.io/vue-camp/
