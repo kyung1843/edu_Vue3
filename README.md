@@ -116,6 +116,7 @@
 ### 인스턴스 작성
 - vue2
 ```vue
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
 new Vue({
     el: '#app'
@@ -123,6 +124,7 @@ new Vue({
 </script>
 ```
 ```vue
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
 new Vue({
   
@@ -131,6 +133,7 @@ new Vue({
 ```
 - vue3
 ```vue
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
 Vue.createApp({
     data() {
