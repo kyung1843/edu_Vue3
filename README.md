@@ -56,7 +56,58 @@
 - vue.js devtools 플러그인
 ![화면 캡처 2023-11-28 085929](https://github.com/kyung1843/Vue3/assets/149764469/c10e2330-00e4-4779-9d76-dabb7860d6f7)
 
+(강의교안)[https://joshua1988.github.io/vue-camp/]
 
-https://joshua1988.github.io/vue-camp/
+(Repository)[https://github.com/joshua1988/learn-vue-js.git]
+## helloWorld 출력
+```vue
+<!-- vue 라이브러리 사용위한 cdn -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<div id="app">
+  {{message}}
+</div>
+<script>
+  Vue.createApp({ //인스턴스 생성
+    data(){
+      return {
+        message : 'helloWorld!!'
+      }
+    }
+  }).mount('#app'); //id가 app인 dom에 생성한 인스턴스를 붙이겠다.
+</script>
+```
+## reactivity 
+객체의 내용 변화에 따라 화면의 내용 변경되는 것
+- proxy api 사용 : 객체에 대한 기본 작업을 가로채고 재정의
+(Proxy_API doc)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy]
+```vue
+<div id="app"></div>
+<script>
+    //객체 생성
+    var data = {
+        message : 10
+    }
 
-https://github.com/joshua1988/learn-vue-js.git
+    //화면 변화 주기 위한 render 함수
+    function render (sth){
+        const div = document.querySelector('#app');
+        div.innerHTML = sth;
+    }
+
+    //Proxy api: 객체에 대한 기본 작업을 가로채고 재정의
+    //data객체를 모방 후 동작  추가
+    var app = new Proxy(data, {
+       //data 동작 정의하는 인자 get/set
+       get() {
+        console.log('값 접근');
+       }, 
+       set(target, prop, newValue){
+        //객체의 속성값에 새로운 값 넣어준다.
+        target[prop] = newValue;
+        render(newValue);
+        console.log('값 갱신');
+       }
+    })
+    //app.message = newValue; 새로운 값을 지정해주면 '값 갱신'
+</script>
+```
