@@ -160,8 +160,13 @@ Vue.createApp({
 ```
 -vue3
 ```vue
+<컴포넌트명></컴포넌트명>  <!-- componenets 사용 -->
 <script>
 Vue.createApp({
+  components : {
+   '컴포넌트명' : 컴포넌트 내용,
+   '컴포넌트명' : {template : '<h1>컴포넌트 등록</h1>'}
+  },
   template: ,  // 화면에 표시할 요소
   data: ,      // 데이터
   methods: ,   // 화면 동작/ 이벤트 제어
@@ -209,5 +214,36 @@ data(){
     }).mount('#app');
   </script>
   ```
-  ## 컴포넌트
+  ## 컴포넌트 통신방식
+  - 상위(부모) => 하위(자식)  : props
+  ```vue
+  <div id="app">
+  <!-- <app-header v-bind:프롭스이름="상위컴포넌트의 데이터이름"></app-header> -->
+  <app-header v-bind:title="appTitle"></app-header>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+  Vue.createApp({
+    data() {
+      return {
+        appTitle: '프롭스 넘기기'
+      }
+    },
+    components: {
+      'app-header': {
+        template: '<h1>{{ title }}</h1>',
+        props: ['title']
+      }
+    },
+  }).mount('#app');
+  </script>
+  ```
+  - 하위(자식) => 상위(하위)  : $emit('event')
+ 
+  - 동일 컴포넌트 간 통신 : event로  상위 root 컴포넌트로 올려서 props로 바뀐 데이터를 하위로 내리는 형식
+    
+    
+    
+  
   
