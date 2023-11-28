@@ -76,7 +76,7 @@
   }).mount('#app'); //id가 app인 dom에 생성한 인스턴스를 붙이겠다.
 </script>
 ```
-## reactivity 
+## 기본 동작 원리 reactivity 
 객체의 내용 변화에 따라 화면의 내용 변경되는 것
 - proxy api 사용 : 객체에 대한 기본 작업을 가로채고 재정의
 (Proxy_API doc)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy]
@@ -111,3 +111,34 @@
     //app.message = newValue; 새로운 값을 지정해주면 '값 갱신'
 </script>
 ```
+## 인스턴스
+- vue는 어플리케이션 인스턴스를 작성해 인스턴스를 적용할 화면영역을 정해서 사용
+### 인스턴스 작성
+- vue2
+```vue
+<script>
+new Vue({
+    el: '#app'
+  })
+</script>
+```
+```vue
+<script>
+new Vue({
+  
+  }).mount('#app')
+</script>
+```
+- vue3
+```vue
+<script>
+Vue.createApp({
+    data() {
+      return {
+        message: 'hi'
+      }
+    }
+  }).mount('#app');
+</script>
+```
+### 
