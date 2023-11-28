@@ -242,7 +242,53 @@ data(){
   - 하위(자식) => 상위(하위)  : $emit('event')
  
   - 동일 컴포넌트 간 통신 : event로  상위 root 컴포넌트로 올려서 props로 바뀐 데이터를 하위로 내리는 형식
-    
+  ```vue
+  <!-- HTML -->
+  <div id="app">
+    <app-header v-bind:app-title="message"></app-header>
+    <app-contents v-on:login="receive"></app-contents>
+  </div>
+  <!-- JavaScript --> 
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    var appHeader = {
+      props: ['appTitle'],
+      template: '<h1>{{ appTitle }}</h1>',
+    }
+
+    var appContents = {
+      template: `
+        <p>
+          <button @click="sendEvent">로그인</button>
+        </p>
+      `,
+      methods: {
+        sendEvent() {
+          this.$emit('login');
+        }
+      }
+    }
+    // 루트 컴포넌트
+    Vue.createApp({
+      data() {
+        return {
+          message: '로그인 하셈'
+        }
+      },
+      methods: {
+        receive() {
+          console.log('받았다');
+          this.message = '로그인 됨'
+        }
+      },
+      components: {
+        // '컴포넌트 이름': 컴포넌트 내용
+        'app-header': appHeader,
+        'app-contents': appContents
+      }  
+    }).mount('#app');
+  </script>
+  ```
     
     
   
