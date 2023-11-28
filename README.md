@@ -144,5 +144,70 @@ Vue.createApp({
   }).mount('#app');
 </script>
 ```
-### 인스턴스 옵션
+### 인스턴스(컴포넌트) 옵션속성
+- vue2
+```vue
+<script>
+  new Vue({
+  el: ,
+  template: ,
+  data: ,
+  methods: ,
+  created: ,
+  watch: ,
+});
+</script>
+```
+-vue3
+```vue
+<script>
+Vue.createApp({
+  template: ,  // 화면에 표시할 요소
+  data: ,      // 데이터
+  methods: ,   // 화면 동작/ 이벤트 제어
+  created: ,   // 라이프사이클 관련 속성
+  watch: ,     // data에서 정의한 속성 변화시 추가동작 정의
+}).mount();
+//vue2에서 el에 선언했던 것을 mount에 선언하게 바뀜
+</script>
+```
 
+** 함수형을 축약해서 표현 가능
+```vue
+data : function(){
+  return {
+  }
+}
+```
+```vue
+data(){
+  return{
+  }
+}
+```
+
+## v-디렉티브
+- v-for
+  ```vue
+  <!-- HTML -->
+    <div id="app">
+    <ul>
+      <li v-for="item in items">
+        {{ item }}
+      </li>
+    </ul> 
+  </div>
+  <!-- JavaScript -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          items: ['삼성', '네이버', '인프런']
+        }
+      },
+    }).mount('#app');
+  </script>
+  ```
+  ## 컴포넌트
+  
