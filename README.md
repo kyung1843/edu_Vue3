@@ -280,7 +280,64 @@ Vue.createApp({
   ```
   ## vue 프로젝트 생성(vue/cli)
   [https://www.notion.so/a49345942f5242b9b1ae6f51bb5a64ff]
+  
     
-    
+  ## vue/cli 프로젝트 구조
+  - package.json
+  ```json
+  {
+    "name": "vue3-form",
+    "version": "0.1.0",
+    "private": true,
+  
+    //vue프로젝트와 관련된 명령어 커스텀
+    "scripts": {
+      "serve": "vue-cli-service serve",
+      "build": "vue-cli-service build",
+      "lint": "vue-cli-service lint"
+    },
+    //프로젝트 라이브러리
+    "dependencies": {
+      "axios": "^1.5.0",
+      "core-js": "^3.8.3",
+      "vue": "^3.2.13"
+    },
+    //개발 위한 부수적 라이브러리
+    "devDependencies": {
+      "@babel/core": "^7.12.16",
+      "@babel/eslint-parser": "^7.12.16",
+      "@vue/cli-plugin-babel": "~5.0.0",
+      "@vue/cli-plugin-eslint": "~5.0.0",
+      "@vue/cli-service": "~5.0.0",
+      "eslint": "^7.32.0",
+      "eslint-plugin-vue": "^8.0.3"
+    },
+    // 자바스크립트 문법 검사 도구 
+    "eslintConfig": {
+      "root": true,
+      "env": {
+        "node": true
+      },
+      "extends": [
+        "plugin:vue/vue3-essential",
+        "eslint:recommended"
+      ],
+      "parserOptions": {
+        "parser": "@babel/eslint-parser"
+      },
+      "rules": {}
+    },
+    // 브라우저 혼합성 관련 설정
+    "browserslist": [
+      "> 1%",
+      "last 2 versions",
+      "not dead",
+      "not ie 11"
+    ]
+  }
+  ```
+  - vue.config.js
+  - index.html
+  - main.js  
   
   
