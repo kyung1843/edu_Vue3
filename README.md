@@ -78,8 +78,12 @@
 ```
 ## 기본 동작 원리 reactivity 
 객체의 내용 변화에 따라 화면의 내용 변경되는 것
+
+(vue 공식문서 Reactivity)[https://v2.vuejs.org/v2/guide/reactivity.html]
+- vue2의 Object.defineProperty(){} 의 경우 사용하려는 속성이 모두 정의 되어 있어야 하는 한계가 있어 Proxy 사용
 - proxy api 사용 : 객체에 대한 기본 작업을 가로채고 재정의
 (Proxy_API doc)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy]
+
 ```vue
 <div id="app"></div>
 <script>
