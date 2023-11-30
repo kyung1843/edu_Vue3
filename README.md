@@ -337,7 +337,49 @@ Vue.createApp({
   }
   ```
   - vue.config.js
+    - vue/cli-service 관련 내용
+    - 웹팩 설정 옵선
+    ```js
+    const { defineConfig } = require('@vue/cli-service')
+      module.exports = defineConfig({
+      transpileDependencies: true
+    })
+    ```
   - index.html
-  - main.js  
+    - 서버 연결시 뜨는 vue-cli로 main.js에서 빌드된 결과물이 뜨는 시작 페이지
+    ```html
+    <!DOCTYPE html>
+    <html lang="">
+      <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+        <title><%= htmlWebpackPlugin.options.title %></title>
+      </head>
+      <body>
+        <noscript>
+          <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.     Please enable it to continue.</strong>
+        </noscript>
+        <!-- localhost:8080 접근시 뜨는 페이지 -->
+        <div id="app">
+          <!-- 이 안에 표시되는 결과물이 vue cli로 빌드된 결과물 -->
+        </div>
+      </body>
+    </html>
+    ```
+  - main.js
+  ```js
+  // vue프로젝트 생성시 npm install 형태로 vue 라이브러리들이 설치되고  node-modules 안에 들어가게됨
+  // node-modules의 라이브러리 package.json파일 dependencies에 선언됨
+  // import {여기서 사용할 이름}   from '라이브러리 이름'
+  import { createApp } from 'vue'
+
+  // vue 파일
+  import App from './App.vue'
+
+  //인스턴스 삽입
+  createApp(App).mount('#app')
+  ```
   
   
