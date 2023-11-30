@@ -381,5 +381,31 @@ Vue.createApp({
   //인스턴스 삽입
   createApp(App).mount('#app')
   ```
-  
+  ## SingleFileComponent
+  .vue 확장자를 가진 모든 파일
+  html, css, js코드를 한 파일에서 관리
+  뷰로더(vue컴포넌트를 자바스크립트로 변환하는 webpack 로더)에 의해 분리실행
+  - vue vscode snippets 익스텐션 설치
+    - vbc + tab -> sfc구조 자동생성
+    - vda + tab -> data옵션 자동생성
+  ```html
+  <!-- html요소 -->
+  <template>
+  <div>
+  </div>
+  </template>
+   <!-- js -->
+  <script>
+    export default {
+      data() {
+        return {
+          key: value
+        }
+      },
+    }
+  </script>
+  <!-- css -->
+  <style lang="scss" scoped>
+  </style>
+  ```
   
