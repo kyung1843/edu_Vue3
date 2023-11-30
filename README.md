@@ -132,7 +132,7 @@ new Vue({
 <script>
 new Vue({
   
-  }).mount('#app')
+  }).$mount('#app')
 </script>
 ```
 - vue3
