@@ -180,21 +180,6 @@ Vue.createApp({
 //vue2에서 el에 선언했던 것을 mount에 선언하게 바뀜
 </script>
 ```
-
-** 함수형을 축약해서 표현 가능
-```vue
-data : function(){
-  return {
-  }
-}
-```
-```vue
-data(){
-  return{
-  }
-}
-```
-
 ## v-디렉티브
 - v-for
   ```vue
