@@ -279,7 +279,7 @@ Vue.createApp({
   </script>
   ```
   ## vue 프로젝트 생성(vue/cli)
-  (https://www.notion.so/a49345942f5242b9b1ae6f51bb5a64ff)[https://www.notion.so/a49345942f5242b9b1ae6f51bb5a64ff]
+  [https://www.notion.so/a49345942f5242b9b1ae6f51bb5a64ff]
     
     
   
