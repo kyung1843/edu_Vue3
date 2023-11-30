@@ -385,6 +385,9 @@ Vue.createApp({
   .vue 확장자를 가진 모든 파일
   html, css, js코드를 한 파일에서 관리
   뷰로더(vue컴포넌트를 자바스크립트로 변환하는 webpack 로더)에 의해 분리실행
+  
+  컴포넌트 생성시 명명규칙 : 파스칼 케이스  EX)AppHeader.vue
+
   - vue vscode snippets 익스텐션 설치
     - vbc + tab -> sfc구조 자동생성
     - vda + tab -> data옵션 자동생성
