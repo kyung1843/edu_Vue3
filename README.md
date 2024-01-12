@@ -204,7 +204,7 @@ Vue.createApp({
   </script>
   ```
   ## 컴포넌트 통신방식
-  [파일링크]()
+  [파일링크](https://github.com/kyung1843/edu_Vue3/tree/master/3_data-binding)
   - 상위(부모) => 하위(자식)  : props
   ```vue
   <div id="app">
