@@ -204,6 +204,7 @@ Vue.createApp({
   </script>
   ```
   ## 컴포넌트 통신방식
+  [파일링크]()
   - 상위(부모) => 하위(자식)  : props
   ```vue
   <div id="app">
