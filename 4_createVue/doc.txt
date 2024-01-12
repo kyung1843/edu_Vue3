@@ -1,0 +1,38 @@
+vue-cli : vue 프로젝트 생성 툴
+    - vite 기반
+
+vue-cli 설치
+    npm install --global @vue/cli
+    npm install -g @vue/cli
+
+프로젝트 생성
+    vue create 프로젝트명
+        : default vue3
+
+서버 실행
+    - 생성한 프로젝트로 이동 
+        : cd ./프로젝트명
+    - 서버 run
+        : npm run serve
+
+프로젝트 구성
+    - package.json
+        # scripts  : 프로젝트와 관련된 명령어 커스텀
+
+        # dependency : 프로젝트 라이브러리
+        # devDependency : 개발 위한 부수적 라이브러리
+
+        # eslintconfig : 자바스크립트 문법 검사 도구
+
+        # browserslist : 브라우저 혼합성 관련 설정
+    
+    - vue.config.js
+        # @vue/cli-service 관련 내용
+        # 웹팩 설정 옵션
+
+    - main.js
+        : 
+          
+    - index.html
+        : 서버 연결시 뜨는 vue/cli로 main.js에서 빌드된 결과물이 뜨는 시작 페이지
+

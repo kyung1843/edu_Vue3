@@ -1,0 +1,28 @@
+
+<div id="app">
+    <!-- v-if 의 경우 html 자체가 생성되지 않음 -->
+    <p v-if="login">로그아웃 하세요</p>
+    <p v-else>로그인 하세요</p>
+    <button v-on:click="loginUser"> 로그인 </button>
+    <hr>
+    <!-- v-show의 경우 html 생성된 후 display 속성으로 안보이게함 -->
+    <p v-show="login">로그아웃 하세요</p>
+    <button v-on:click="loginUser">로그인</button>
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    Vue.createApp({
+        data(){
+            return{
+                login : false
+            }
+        },
+        methods : {
+            loginUser(){
+                this.login = !this.login
+            }
+        }
+    }).mount('#app')
+</script>

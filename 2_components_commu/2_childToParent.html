@@ -1,0 +1,41 @@
+<!-- HTML -->
+<div id="app">
+    <!--2. 선언한 props로 데이터 전달  -->
+    <!--v-bind:props이름="데이터 이름"-->
+    <app-contents v-on:refresh="showAlert"></app-contents>
+</div>
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    let str = '갱신'; 
+    let appContents ={
+        template : `
+        <!-- v-on:이벤트이름="상위 컴포넌트의 메소드 이름" -->
+        <p>
+            <button v-on:click="sendEvent">${str}</button>
+        </p>
+        `,
+        methods : {
+            sendEvent(){
+                this.$emit('refresh');
+            }
+        }
+    }
+    Vue.createApp({
+        data(){
+            return{
+                appTitle : 'props 넘기기'
+            }
+        },
+        components : {
+            //컴포넌트 이름 : 컴포넌트 내용
+            'app-contents' : appContents            
+        }
+        ,methods : {
+            showAlert(){
+                alert('Refresh');
+            }
+        }
+  }).mount('#app');
+</script>
