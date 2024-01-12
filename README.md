@@ -162,7 +162,7 @@ Vue.createApp({
 });
 </script>
 ```
--vue3
+- vue3
 ```vue
 <컴포넌트명></컴포넌트명>  <!-- componenets 사용 -->
 <script>
