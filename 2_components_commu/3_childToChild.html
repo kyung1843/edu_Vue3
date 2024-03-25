@@ -1,0 +1,47 @@
+<!-- HTML -->
+<div id="app">
+    <!-- html 한정 카멜케이스 인식 못해 app-title로 변경 -->
+    <app-header v-bind:app-title="message"></app-header>
+    <app-contents v-on:login="receive"></app-contents>
+</div>
+
+<!-- JavaScript -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    let appHeader = {
+        props:['appTitle'],
+        template : `
+            <h1>{{appTitle}}</h1>
+        `
+    }
+    let appContents ={
+        template : `
+            <p>
+                <button v-on:click="sendEvent">로그인</button>
+            </p>
+        `,
+        methods : {
+            sendEvent(){
+                this.$emit('login');
+            }
+        }
+    }
+    Vue.createApp({
+        data(){
+            return{
+                message : '로그인 하세요'
+            }
+        },
+        components : {
+            //컴포넌트 이름 : 컴포넌트 내용
+            'app-header' : appHeader,
+            'app-contents' : appContents            
+        }
+        ,methods : {
+            receive(){
+                console.log("하위 데이터 root에서 받음");
+                this.message = '로그인됨'
+            }
+        }
+  }).mount('#app');
+</script>

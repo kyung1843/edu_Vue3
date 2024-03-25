@@ -1,0 +1,32 @@
+<div id="app"></div>
+
+<script>
+//reactivity : 객체의 내용이 변화함에 따라서 화면의 내용이 일치해서 변경되는 것
+    //객체 생성
+    var data = {
+        message : 10
+    }
+    
+    //변하는 값을 받기 위한 함수
+    function render (sth){
+        let div = document.querySelector('#app');
+        div.innerHTML = sth;
+    }
+
+    //Proxy API : 객체에 대한 기본 작업을 가로채고 재정의
+    let app = new Proxy(data, {
+        //(data객체를 모방 ,  {동작 추가})
+       //data 동작 정의하는 인자 get/set
+       get() {
+        console.log('값 접근');
+       }, 
+       set(target, prop, newValue){
+        //객체의 속성값에 새로운 값 넣어준다.
+        target[prop] = newValue;
+        render(newValue);
+        console.log('값 갱신');
+       }
+    })
+    //개발자도구 console에서 app.a =20; 으로 새로운 값을 지정해주면 '값 갱신'
+
+</script>

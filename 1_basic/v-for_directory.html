@@ -1,0 +1,16 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<div id="app">
+    <ul>
+        <li v-for="item in items">{{item}}</li>
+    </ul>
+</div>
+<script>
+  //v-for : 리스트 렌더링
+  Vue.createApp({ 
+    data(){
+      return {
+        items : ['samsung', 'apple' , 'Lg']
+      }
+    }
+  }).mount('#app');
+</script>
